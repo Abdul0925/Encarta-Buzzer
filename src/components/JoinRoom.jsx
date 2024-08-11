@@ -27,14 +27,15 @@ function JoinRoom() {
   //   });
   // };
   const handleJoinRoom = () => {
-    // const userId = `User${Math.floor(Math.random() * 1000)}`;
-    // socket.emit('joinRoom', { roomCode, userId });
+    const userId = `User${Math.floor(Math.random() * 1000)}`;
+    socket.emit('joinRoom', { roomCode, userId });
+
     if (roomCode) {
 
          checkRoomCode(roomCode).then((isValid) => {
       if (isValid) {
         // navigate(`/room/${roomCode}`, { state: { key: {userId} } });
-        navigate(`/room/${roomCode}` );
+        navigate(`/room/${userId}/${roomCode}` );
       } else {
         alert('Invalid Room Code');
       }
@@ -47,6 +48,7 @@ function JoinRoom() {
       // alert('Please enter a room code.');
     }
   };
+ 
   return (
     <div className="join-room-container">
       <input

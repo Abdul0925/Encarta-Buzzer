@@ -50,18 +50,24 @@ io.on('connection', (socket) => {
       socket.emit('invalidRoom');
     }
   });
+ 
 
   socket.on('joinRoomAdmin', ({ roomCode }) => {
-    console.log(`Admin joined room: ${roomCode}`);
+    // console.log(`Admin joined room: ${roomCode}`);
     socket.join(roomCode);
   });
+  // socket.on('joinRoomUser', ({ roomCode }) => {
+  //   // console.log(`Admin joined room: ${roomCode}`);
+  //   socket.join(roomCode);
+  // });
   
   
   
   socket.on('buzzerPress', ({ roomCode, userId }) => {
     if (rooms[roomCode] && !rooms[roomCode].buzzerOrder.includes(userId)) {
       rooms[roomCode].buzzerOrder.push(userId);
-      io.to(roomCode).emit('buzzerResult', { userId });
+      // io.to(roomCode).emit('buzzerResult', { userId });
+      socket.broadcast.to(roomCode).emit('buzzerResult', userId);
       console.log(`${userId} pressed the buzzer in room ${roomCode}`);
     }
   });

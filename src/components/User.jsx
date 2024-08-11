@@ -10,26 +10,42 @@ const socket = io('http://localhost:4000');
 
 function User() {
   const { roomCode } = useParams();
+  const { userId } = useParams();
   const [pressed, setPressed] = useState(false);
   const [firstResponder, setFirstResponder] = useState(null);
   const [userName, setUserName] = useState('');
-  const [userId, setUserId] = useState('');
+  // const [userId, setUserId] = useState('');
   const location = useLocation();
   const { key } = location.state || {};
+
+ 
   
   useEffect(() => {
     console.log("Hello1");
-    const userId = `user${Math.floor(Math.random() * 1000)}`; // Generate a random user ID
+    // const userId = `user${Math.floor(Math.random() * 1000)}`; // Generate a random user ID
     // socket.on('userJoined', (userId) => {
       console.log("Hello2");
-      setUserName(userId);
-    // });
 
-    socket.emit('joinRoom', { roomCode, userId });
+      // socket.emit('joinRoomUser', { roomCode });
+
+      // socket.on('userJoined', (user) => {
+      //   console.log("Hello3");
+      //   // console.log(`User joined: ${user}`);
+      //   const userId = (`User joined: ${user}`);
+      //   setUserName(userId);
+      //   console.log(`Current users in room ${roomCode}: ${roomCode.users.join(', ')}`);
+      //   setUsers((prevUsers) => [...prevUsers, user]);
+      //   // setUsers({userId});
+      // });
+      // });
+      
+      // setUserName(userId);
+    // socket.emit('joinRoom', { roomCode, userId });
     
     
    
     socket.on('buzzerResult', (data) => {
+      console.log("Buzzer Result");
       setFirstResponder(data.userId);
     });
 
@@ -41,23 +57,20 @@ function User() {
 
   const handleBuzzerPress = () => {
     if (!pressed) {
-      // if (audio) {
-      //   audio.play().catch((error) => {
-      //     console.error("Error playing audio:", error);
-      //   });
-      // }
       console.log("Pressed")
       
-      socket.emit('buzzerPress', { roomCode, userId:userName });
+      socket.emit('buzzerPress', { roomCode, userId });
       // socket.emit('buzzerPress', { roomCode });
       setPressed(true);
 
     }
   };
 
+  
   return (
     <div className="user-container">
-      <h2>{userName}</h2>
+      <h1>You Joined: <u>{roomCode}</u> </h1>
+      <h2>{userId}</h2>
       {/* <h2>{key.userId}</h2> */}
       {/* <input
         type="text"
@@ -71,10 +84,10 @@ function User() {
         Press Buzzer
       </button>
       {/* <audio id="audioElement" src=".\chin tapak dam dam.mp3"></audio> */}
-      <audio>
+      {/* <audio>
         <source src="./damdam.mp3" />
         Your browser does not support the audio element.
-      </audio>
+      </audio> */}
       {firstResponder && (
         <div className="result">
           {/* {firstResponder === userName ? 'You pressed first!' : `${firstResponder} pressed first!`} */}

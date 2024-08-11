@@ -24,7 +24,7 @@ function App() {
             <Route path="/join" element={<JoinRoom />}>
               {/* <JoinRoom /> */}
             </Route>
-            <Route path="/room/:roomCode" element={<User />}>
+            <Route path="/room/:userId/:roomCode" element={<User />}>
               {/* <User /> */}
             </Route>
           </Routes>
