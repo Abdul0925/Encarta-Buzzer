@@ -1,0 +1,27 @@
+.user-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .buzzer-button {
+    padding: 20px;
+    font-size: 24px;
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .buzzer-button:disabled {
+    background-color: #d3d3d3;
+  }
+  
+  .result {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+  
+  .username-input{
+    display: block;
+  }

@@ -1,0 +1,26 @@
+.admin-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .reset-button {
+    padding: 10px;
+    font-size: 18px;
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+  
