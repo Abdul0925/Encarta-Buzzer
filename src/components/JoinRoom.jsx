@@ -10,20 +10,21 @@ const socket = io('http://localhost:4000');
 
 function JoinRoom() {
   const [roomCode, setRoomCode] = useState('');
-  // const [userName, setUserName] = useState('');  // if use username  
+  const [userName, setUserName] = useState('');  // if use username  
 
   const navigate = useNavigate();
 
   const handleJoinRoom = () => {
     const userId = `User${Math.floor(Math.random() * 1000)}`;
-    socket.emit('joinRoom', { roomCode, userId });
+    // socket.emit('joinRoom', { roomCode, userId });
+    socket.emit('joinRoom', { roomCode, userName });
 
     if (roomCode ) {
       checkRoomCode(roomCode).then((isValid) => {
       if (isValid) {
         
-        navigate(`/room/${userId}/${roomCode}` );
-        // navigate(`/room/${userName}/${roomCode}` );
+        // navigate(`/room/${userId}/${roomCode}` );
+        navigate(`/room/${userName}/${roomCode}` );
       } else {
         alert('Invalid Room Code');
       }
@@ -35,13 +36,13 @@ function JoinRoom() {
  
   return (
     <div className="join-room-container">
-      {/* <input
+      <input
         type="text"
         value={userName}
         onChange={(e) => setUserName(e.target.value)}
         placeholder="Enter Your Name"
         className="join-room-input"
-      /> */}
+      />
       <input
         type="text"
         value={roomCode}

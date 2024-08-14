@@ -18,7 +18,8 @@ function App() {
             <Route path="/" element={<Home />} exact></Route>
             <Route path="/admin/:roomCode" element={<Admin />}></Route>
             <Route path="/join" element={<JoinRoom />}></Route>
-            <Route path="/room/:userId/:roomCode" element={<User />}></Route>
+            {/* <Route path="/room/:userId/:roomCode" element={<User />}></Route> */}
+            <Route path="/room/:userName/:roomCode" element={<User />}></Route>
           </Routes>
         </main>
         <footer className='footer'>

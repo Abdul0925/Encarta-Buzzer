@@ -11,9 +11,10 @@ const socket = io('http://localhost:4000');
 function User() {
   const { roomCode } = useParams();
   const { userId } = useParams();
+  const { userName } = useParams();
   const [pressed, setPressed] = useState(false);
   const [firstResponder, setFirstResponder] = useState(null);
-  const [userName, setUserName] = useState('');
+  // const [userName, setUserName] = useState('');
   const location = useLocation();
   const { key } = location.state || {};
 
@@ -37,7 +38,8 @@ function User() {
   const handleBuzzerPress = () => {
     if (!pressed) {
       console.log("Buzzer Pressed");
-      socket.emit('buzzerPress', { roomCode, userId }); //Go To server
+      // socket.emit('buzzerPress', { roomCode, userId }); //Go To server
+      socket.emit('buzzerPress', { roomCode, userName }); //Go To server
       setPressed(true);
     }
   };
@@ -47,7 +49,8 @@ function User() {
     <div className="user-container">
       <h1>You Joined: <u>{roomCode}</u> </h1>
       
-      <h2>{userId}</h2>
+      {/* <h2>{userId}</h2> */}
+      <h2>{userName}</h2>
       
       <button className="buzzer-button" onClick={handleBuzzerPress} disabled={pressed}>
         Press Buzzer

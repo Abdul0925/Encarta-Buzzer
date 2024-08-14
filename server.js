@@ -39,12 +39,12 @@ io.on('connection', (socket) => {
   
   //When User Clicks on Join room after putting RoomCode
   //START
-  socket.on('joinRoom', ({ roomCode, userId }) => {
+  socket.on('joinRoom', ({ roomCode, userName }) => {
     if (rooms[roomCode]) {
-      rooms[roomCode].users.push(userId); //UserId added (push) to an array
+      rooms[roomCode].users.push(userName); //UserId added (push) to an array
       socket.join(roomCode);
-      socket.broadcast.to(roomCode).emit('userJoined', userId); //Send userId to Admin because we use userJoined in admin page
-      console.log(`${userId} joined room ${roomCode}`);
+      socket.broadcast.to(roomCode).emit('userJoined', userName); //Send userId to Admin because we use userJoined in admin page
+      console.log(`${userName} joined room ${roomCode}`);
       console.log(`Current users in room ${roomCode}: ${rooms[roomCode].users.join(', ')}`);
     } else {
       socket.emit('invalidRoom');
@@ -65,11 +65,11 @@ io.on('connection', (socket) => {
   
   //When user clicks on buzzer 
   //START
-  socket.on('buzzerPress', ({ roomCode, userId }) => {
-    if (rooms[roomCode] && !rooms[roomCode].buzzerOrder.includes(userId)) {
-      rooms[roomCode].buzzerOrder.push(userId);
-      socket.broadcast.to(roomCode).emit('buzzerResult', userId); //userId will send to Admin Page
-      console.log(`${userId} pressed the buzzer in room ${roomCode}`);
+  socket.on('buzzerPress', ({ roomCode, userName }) => {
+    if (rooms[roomCode] && !rooms[roomCode].buzzerOrder.includes(userName)) {
+      rooms[roomCode].buzzerOrder.push(userName);
+      socket.broadcast.to(roomCode).emit('buzzerResult', userName); //userName will send to Admin Page
+      console.log(`${userName} pressed the buzzer in room ${roomCode}`);
     }
   });
   //END
