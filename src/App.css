@@ -1,0 +1,16 @@
+.footer{
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.App-header{
+    display: flex;
+    justify-content:center;
+    margin-top: 50px;
+}
+
+.App{
+    font-family: 'Courier New', Courier, monospace;
+}

@@ -6,10 +6,10 @@
   .buzzer-button {
     padding: 20px;
     font-size: 24px;
-    background-color: #ff4757;
+    background-color: #0d31b3;
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
   }
   

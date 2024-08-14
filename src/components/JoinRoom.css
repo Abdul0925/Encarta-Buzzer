@@ -1,22 +1,65 @@
-.join-room-container {
-    text-align: center;
+ .join-room-container {
+    /* text-align: center; */
     margin-top: 50px;
+    position: relative;
   }
-  
+   /*
   .join-room-input {
     padding: 10px;
     font-size: 18px;
-    margin-right: 10px;
-    border-radius: 5px;
+    margin-right: 50px; */
+    /* border-radius: 5px; */
+    /* border: none;
+    border-bottom: 1px solid black;
   }
+  .join-room-input:focus{
+    border: none;
+  }
+  */
   
   .join-room-button {
     padding: 10px;
     font-size: 18px;
-    background-color: #32cd32;
+    background-color: #0d31b3;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 12px;
     cursor: pointer;
   }
-  
+
+   body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    height: 100vh;
+    margin: 0;
+    background: #f7f7f7;
+    /* margin-top: 50px; */
+}
+
+.join-room-input-container {
+    position: relative;
+}
+
+.join-room-input {
+    padding: 10px;
+    font-size: 18px;
+    margin-right: 50px;
+    border: none;
+    border-bottom: 2px solid #3498db; /* Stylish blue border */
+    border-radius: 5px;
+    background-color: #fff;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.join-room-input:focus {
+    border-bottom: 2px solid #0d31b3; /* Green border on focus */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+}
+
+.join-room-input::placeholder {
+    color: #aaa;
+    font-style: italic;
+  }

@@ -9,7 +9,8 @@ function Home() {
   const navigate = useNavigate();
 
   const handleCreateRoom = () => {
-    socket.emit('createRoom');
+    socket.emit('createRoom'); //RoomCode Created
+    // Navigate to New URL with Room Code =>
     socket.on('roomCreated', ({ roomCode }) => {
       navigate(`/admin/${roomCode}`);
     });

@@ -11,24 +11,19 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <header className="App-header">
-          <h1>Encarta Quiz Buzzer</h1>
+          <h1>ENCARTA Quiz Buzzer</h1>
         </header>
         <main>
           <Routes>
-            <Route path="/" element={<Home />} exact>
-              {/* <Home /> */}
-            </Route>
-            <Route path="/admin/:roomCode" element={<Admin />}>
-              {/* <Admin /> */}
-            </Route>
-            <Route path="/join" element={<JoinRoom />}>
-              {/* <JoinRoom /> */}
-            </Route>
-            <Route path="/room/:userId/:roomCode" element={<User />}>
-              {/* <User /> */}
-            </Route>
+            <Route path="/" element={<Home />} exact></Route>
+            <Route path="/admin/:roomCode" element={<Admin />}></Route>
+            <Route path="/join" element={<JoinRoom />}></Route>
+            <Route path="/room/:userId/:roomCode" element={<User />}></Route>
           </Routes>
         </main>
+        <footer className='footer'>
+          <b><i>Developed by: ABDUL RAHIM</i></b>
+      </footer>
       </div>
     </BrowserRouter>
   );
